@@ -38,10 +38,10 @@ pipeline {
         }
         
         stage('Diag: Parameters') {
-            steps {
-                sh 'echo "BASE_URL=${params.BASE_URL}"'
-            }
-        }
+    steps {
+        sh "echo 'BASE_URL=${params.BASE_URL}'" 
+    }
+}
         
         stage('Checkout') {
             steps {

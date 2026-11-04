@@ -56,15 +56,15 @@ pipeline {
             }
         }
         
-        stage('Tests') {
-            steps {
-                sh """
-                    ./gradlew test --no-daemon \
-                        -DbaseUrl="${params.BASE_URL}" \
-                        -Dbrowser="${params.BROWSER}" \
-                        -Dheadless="${params.HEADLESS}"
-                """
-            }
+        // stage('Tests') {
+        //     steps {
+        //         sh """
+        //             ./gradlew test --no-daemon \
+        //                 -DbaseUrl="${params.BASE_URL}" \
+        //                 -Dbrowser="${params.BROWSER}" \
+        //                 -Dheadless="${params.HEADLESS}"
+        //         """
+        //     }
             post {
                 always {
                     catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {

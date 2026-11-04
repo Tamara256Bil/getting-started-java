@@ -51,6 +51,7 @@ pipeline {
         
         stage('Build') {
             steps {
+                sh 'chmod +x gradlew'
                 sh './gradlew --no-daemon clean assemble'
             }
         }

@@ -67,7 +67,7 @@ pipeline {
             post {
                 always {
                     catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
-                        junit 'build/allure-results/*.xml', allowEmptyResults: false
+                        junit testResults: 'build/allure-results/*.xml', allowEmptyResults: false
                     }
                 }
             }

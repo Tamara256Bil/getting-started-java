@@ -29,4 +29,5 @@ jobs:
         
     - name: Build and Test
       # Флаг -Dselenide.headless=true принудительно включает невидимый режим браузера
-      run: ./gradlew test -Dselenide.headless=true
+         - name: Build and Test
+      run: ./gradlew test -Dselenide.headless=true -Dselenide.browser=chrome -Dchromeoptions.args="--no-sandbox,--disable-dev-shm-usage"

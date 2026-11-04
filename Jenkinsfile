@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'java-jdk21-jenkins-agent-1' }
+    agent { label 'java-jdk21-jenkins-agent-2' }
     
     options {
         timeout(time: 30, unit: 'MINUTES')

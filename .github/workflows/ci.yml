@@ -28,7 +28,5 @@ jobs:
         chrome-version: stable
         
     - name: Build and Test
-      env:
-        # Передаем аргументы Chrome через переменную окружения Selenide
-        CHROME_ARGS: "--no-sandbox --disable-dev-shm-usage"
-      run: ./gradlew test -Dselenide.headless=true -Dselenide.browser=chrome
+      # Аргументы передаются через пробел, без запятых
+      run: ./gradlew test -Dselenide.headless=true -Dselenide.browser=chrome -Dchromeoptions.args="--no-sandbox --disable-dev-shm-usage"

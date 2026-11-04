@@ -1,4 +1,4 @@
-﻿name: Java CI with Gradle
+name: Java CI with Gradle
 
 on:
   push:
@@ -28,6 +28,7 @@ jobs:
         chrome-version: stable
         
     - name: Build and Test
-      # Флаг -Dselenide.headless=true принудительно включает невидимый режим браузера
-         - name: Build and Test
-      run: ./gradlew test -Dselenide.headless=true -Dselenide.browser=chrome -Dchromeoptions.args="--no-sandbox,--disable-dev-shm-usage"
+      env:
+        # Передаем аргументы Chrome через переменную окружения Selenide
+        CHROME_ARGS: "--no-sandbox --disable-dev-shm-usage"
+      run: ./gradlew test -Dselenide.headless=true -Dselenide.browser=chrome
